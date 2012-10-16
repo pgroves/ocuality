@@ -1,0 +1,11 @@
+
+let testSuite () = begin
+	let children = [
+		TestCaseTest.testSuite ();
+		VerifyTest.testSuite ();
+		
+		]
+	in
+	let suite = TestCase.createSuite ~label:"Safety" ~children:children in
+	suite
+	end

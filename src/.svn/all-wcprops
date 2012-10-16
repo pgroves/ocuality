@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rallyflag_autotrade/!svn/ver/1946/trunk/src/platform/safety
+END
+Log.ml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/rallyflag_autotrade/!svn/ver/1946/trunk/src/platform/safety/Log.ml
+END
+Marker.ml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/rallyflag_autotrade/!svn/ver/1159/trunk/src/platform/safety/Marker.ml
+END
+CheckHandler.mli
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/rallyflag_autotrade/!svn/ver/1154/trunk/src/platform/safety/CheckHandler.mli
+END
+TestCase.mli
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/rallyflag_autotrade/!svn/ver/1768/trunk/src/platform/safety/TestCase.mli
+END
+Verify.ml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/rallyflag_autotrade/!svn/ver/1699/trunk/src/platform/safety/Verify.ml
+END
+VerifyTest.ml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/rallyflag_autotrade/!svn/ver/1170/trunk/src/platform/safety/VerifyTest.ml
+END
+SafetySuite.ml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/rallyflag_autotrade/!svn/ver/1170/trunk/src/platform/safety/SafetySuite.ml
+END
+Log.mli
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/rallyflag_autotrade/!svn/ver/1154/trunk/src/platform/safety/Log.mli
+END
+Marker.mli
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/rallyflag_autotrade/!svn/ver/1159/trunk/src/platform/safety/Marker.mli
+END
+CheckHandler.ml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/rallyflag_autotrade/!svn/ver/1768/trunk/src/platform/safety/CheckHandler.ml
+END
+TestCase.ml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/rallyflag_autotrade/!svn/ver/1768/trunk/src/platform/safety/TestCase.ml
+END
+TestCaseTest.ml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/rallyflag_autotrade/!svn/ver/1170/trunk/src/platform/safety/TestCaseTest.ml
+END
+Verify.mli
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/rallyflag_autotrade/!svn/ver/1699/trunk/src/platform/safety/Verify.mli
+END

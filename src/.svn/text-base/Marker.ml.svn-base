@@ -1,0 +1,15 @@
+
+type t = int ref
+
+let create () = ref 0
+
+let mark mrkr = mrkr := (!mrkr + 1)
+
+let reset mrkr = mrkr := 0
+
+let getNumMarks mrkr = !mrkr
+
+let hasMarks mrkr = (not (!mrkr = 0))
+
+let hasExactlyOne mrkr = (!mrkr = 1)
+

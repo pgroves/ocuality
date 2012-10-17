@@ -75,7 +75,7 @@ let declareFailure ~label = begin
 	|true -> begin
 		declareOutcome (IgnoredFailure(label));
 		noFailBlockHasFailure := true;
-		()
+        failwith "Detected a Failure, which we were looking for"
 		end
 	|false -> begin
 		declareOutcome (Failure(label));

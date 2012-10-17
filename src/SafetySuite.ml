@@ -4,10 +4,14 @@ let testSuite () = begin
 		ComparerTest.testSuite ();
 		TestCaseTest.testSuite ();
 		VerifyTest.testSuite ();
+		IteratorTest.testSuite ();
+		ListUtilTest.testSuite ();
+		ArrayUtilTest.testSuite ();
+		BlockTest.testSuite ();
 		
 		]
 	in
-	let suite = TestCase.createSuite ~label:"Safety" ~children:children in
+	let suite = TestCase.createSuite ~label:"ocuality" ~children:children in
 	suite
 	end
 

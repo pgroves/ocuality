@@ -6,15 +6,16 @@ Integrated Logging, Assertion, and Unit Testing library for building quality Oca
 
 ##Log 
 
-Global logging that writes to standard out. Multiple levels of
-available, with the ability to set the level to accept and print (plus
-all levels of higher precedence).
+Global logging that writes to standard out. Multiple levels of granularity
+(Spew, Debug, ..., Crash) available, with the ability to set the level to
+accept and print (plus all levels of higher precedence).
 
  E.g.
 
 ```ocaml
 
 let logExampleMain() = begin
+    (** all log messages Info or higher will end up in the logs *)
     Log.setRunLevel Log.Info;
 
     Log.info "This info message will get logged";
@@ -106,7 +107,7 @@ let verifyExampleMain () = begin
 
     (* set the global type of response to create when a verification
     succeeds or fails *) 
-    CheckHandler.setSuccessResponse Log.Debug;
+    CheckHandler.setSuccessResponse Log.Info;
     CheckHandler.setFailResponse CheckHandler.Continue Log.Crash;
 
     Verify.notEqual
@@ -117,12 +118,9 @@ let verifyExampleMain () = begin
 
     (* Most importantly, we can compose higher order Comparers that
        still work with the Verify.* methods. see Comparer.make*() methods
-       for more.
+       for more.  *)
        
-       Here, we make a comparer for a pair of type (tSkyObject * int)
-       *)
-
-
+    (*  Here, we make a comparer for a pair of type (tSkyObject * int) *)
     let pairComparer = Comparer.makePair skyComp Comparer.ints in
 
     (** this verification is going to fail at runtime *)
@@ -140,7 +138,8 @@ let verifyExampleMain () = begin
 will produce the following log message, then exit after the Failure occurs.
 
 ```
-[2012/10/17-22:51::11] [CRASH] [FAILURE] Are my pairs equal? :: (x1 == x2) for values: (x1 = (Sun, 1)), (x2 = (Moon, 2))
+[2012/10/18-04:14::03] [INFO] [Success] I have two sky objects, making sure they aren't the same :: (x1 != x2) for values: (x1 = Sun), (x2 = Moon)
+[2012/10/18-04:14::03] [CRASH] [FAILURE] Are my pairs equal? :: (x1 == x2) for values: (x1 = (Sun, 1)), (x2 = (Moon, 2))
 ```
 
 
@@ -230,21 +229,27 @@ let testCaseExampleMain () = begin
 
 ```
 
-will produce the log message:
+will produce the following log message. Note that when the test case is run,
+log messages about the number of verifications that passed/failed are summarized
+on the very last line. When there are deeply nested test cases, it will even
+tell you where the broken tests are.
 
 ```
-[2012/10/17-22:51::11] [TEST] 
+[2012/10/18-04:14::03] [TEST] 
 
-Atom: 'testcase1' Begin.
+    Atom: 'testcase1' Begin.
 
-
-[2012/10/17-22:51::11] [TEST] Starting TestCase1
-[2012/10/17-22:51::11] [CRASH] [IgnoredFailure] can only count to positive numbers, is x > 0? :: (x1 > x2) for values: (x1 = -22), (x2 = 0)
-[2012/10/17-22:51::11] [INFO] Verify.doesFail block exited with exception
-[2012/10/17-22:51::11] [TEST] Finished TestCase1
-[2012/10/17-22:51::11] [TEST] Atom: 'testcase1' End.
-[2012/10/17-22:51::11] [TEST] Atom: 'testcase1' Passed. 0/5 Verifications Failed
-[2012/10/17-22:51::11] [TEST] testcase1: All Tests Passed.
+[2012/10/18-04:14::03] [TEST] Starting TestCase1
+[2012/10/18-04:14::03] [INFO] [Success] can only count to positive numbers, is x > 0? :: (x1 > x2) for values: (x1 = 3), (x2 = 0)
+[2012/10/18-04:14::03] [INFO] [Success] (exp, obs) countTo3 :: (x1 == x2) for values: (x1 = [1; 2; 3]), (x2 = [1; 2; 3])
+[2012/10/18-04:14::03] [CRASH] [IgnoredFailure] can only count to positive numbers, is x > 0? :: (x1 > x2) for values: (x1 = -22), (x2 = 0)
+[2012/10/18-04:14::03] [INFO] Verify.doesFail block exited with exception
+[2012/10/18-04:14::03] [INFO] [Success] Verify.doesFail: failed as expected. Passing in a negative number should fail
+[2012/10/18-04:14::03] [TEST] Finished TestCase1
+[2012/10/18-04:14::03] [INFO] [Success] Atom: 'testcase1' Finished Properly
+[2012/10/18-04:14::03] [TEST] Atom: 'testcase1' End.
+[2012/10/18-04:14::03] [TEST] Atom: 'testcase1' Passed. 0/5 Verifications Failed
+[2012/10/18-04:14::03] [TEST] testcase1: All Tests Passed.
 
 ```
 

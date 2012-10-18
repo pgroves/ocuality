@@ -71,7 +71,7 @@ let verifyExampleMain () = begin
 
     (* set the global type of response to create when a verification
     succeeds or fails *) 
-    CheckHandler.setSuccessResponse Log.Debug;
+    CheckHandler.setSuccessResponse Log.Info;
     CheckHandler.setFailResponse CheckHandler.Continue Log.Crash;
 
     Verify.notEqual

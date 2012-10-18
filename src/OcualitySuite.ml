@@ -1,3 +1,7 @@
+(*
+	This module is an executable that runs a complete test suite of the
+	individual module test suites.
+*)
 
 let testSuite () = begin
 	let children = [
